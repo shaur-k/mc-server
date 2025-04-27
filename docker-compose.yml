@@ -1,18 +1,18 @@
 services:
   mc:
-    image: iztg/minecraft-server:latest
+    image: itzg/minecraft-server:latest
     tty: true
     stdin_open: true
     environment:
       EULA: "true"
       TYPE: "PAPER"
+      PAPER_CHANNEL: "experimental"
       MEMORY: "4096M"
-      VERSION: "1.21.4"
+      VERSION: "1.21.5"
       MOTD: "the tank is up!"
+      ICON: "https://github.com/shaur-k/mc-server/blob/main/shaurk_logo_wip.png"
     ports:
       - "25565:25565"
     volumes:
-      - ./data:/data
+      - /mnt/all_data/minecraft:/data
     restart: unless-stopped
-volumes:
-  data: {}
