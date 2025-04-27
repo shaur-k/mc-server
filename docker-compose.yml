@@ -1,0 +1,18 @@
+services:
+  mc:
+    image: iztg/minecraft-server:latest
+    tty: true
+    stdin_open: true
+    environment:
+      EULA: "true"
+      TYPE: "PAPER"
+      MEMORY: "4096M"
+      VERSION: "1.21.4"
+      MOTD: "the tank is up!"
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+volumes:
+  data: {}
